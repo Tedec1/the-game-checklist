@@ -6,7 +6,7 @@ const Item = ({ num }) => {
 	const [active, setActive] = useState(false);
 
 	return (
-		<div style={{ margin: "7px" }}>
+		<div style={{ margin: "10px" }}>
 			<span style={{ textDecoration: active ? "line-through" : "none" }}>
 				{" "}
 				{num}{" "}
