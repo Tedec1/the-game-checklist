@@ -1,0 +1,16 @@
+html,body,#root{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.list{
+    display: flex;
+    flex-flow: row wrap;
+    height: 70%;
+    width: 50%;
+    min-width: 250px;
+    padding: 10%;
+    
+}
