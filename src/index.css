@@ -39,7 +39,7 @@ body,
 }
 #control{
 	display: grid;
-	grid-template: 1fr / 1fr 1fr 1fr;
+	grid-template: 1fr / 1fr 1fr 1fr 1fr;
 	margin-top: 10px;
 }
 #control > *{
@@ -69,4 +69,5 @@ body,
 	font-size: 500%;
 	justify-content: flex-end;
 	align-items: center;
+	overflow: hidden;
 }

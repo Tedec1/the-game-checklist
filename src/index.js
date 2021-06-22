@@ -3,10 +3,11 @@ import "./index.css";
 import ReactDom from "react-dom";
 const App = () => {
     const l = [];
-	const a = {};
+    const b = {}
     for (let i = 1; i < 101; i++) {
-        a[String(i)] = true;
+      b[i] = true;
     }
+	const [a,setA] = useState({...b});
     const Numpad = () => {
         const [val, setVal] = useState("0");
         const Button = ({ num }) => (
@@ -17,6 +18,7 @@ const App = () => {
                 // console.log("click");
                 e.preventDefault();
                 setVal(val !== "0" ? val + num : String(num));
+                // console.log(a)
             }}
             >
             {num}
@@ -34,17 +36,19 @@ const App = () => {
       <Display />
       <div id="buttons">{l}</div>
       <div id="control">
-        <button id="clear" onClick={()=>setVal("0")}>Clear</button>
+        <button id="reset" onClick={()=>{setA({...b})}}>reset</button>
+        <button id="clear" onClick={()=>setVal("0")}>clear</button>
         <button id="backspace" onClick={()=>val.length > 0 && setVal(val.slice(0,val.length-1))}>{"<"}</button>
-        <button id="enter" onClick={()=>{a[String(val)] = false}}>{"submit"}</button>
+        <button id="enter" onClick={()=>{setA({...a,[val]:false})}}>{"submit"}</button>
       </div>
     </div>
   )
 };
-const Item = ({ num }) => {    
-    return (
+const Item = ({ num, a }) => {    
+    
+  return (
         <div style={{ margin: "7px" }}>
-        <span style={{ textDecoration: !a[String(num)] ? "line-through" : "none" }}>
+        <span style={{textDecoration: !a[num] ? "line-through": "none"}}>
           {" "}
           {num}{" "}
         </span>
@@ -52,7 +56,7 @@ const Item = ({ num }) => {
     )
 }
     for (let i = 1; i < 101; i++) {
-        l.push(<Item num={i} key={i} />)
+        l.push(<Item num={i} key={i} a={a}/>)
     }
 return (
 <>
