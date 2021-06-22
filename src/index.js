@@ -1,22 +1,27 @@
-import {default as Item} from "./Item";
-import React from 'react';
-import './index.css'
-import ReactDom from 'react-dom';
+import React, { useState } from "react"
+import "./index.css"
+import ReactDom from "react-dom"
 const App = () => {
-    const l = []
-    for (let i = 1; i < 101; i++) {
-        l.push(<Item num={i}/>)
-    }
-    return (<div className="list">
-        {
-            l
-        }
+  const l = []
+  for (let i = 1; i < 101; i++) {
+    l.push(<Item num={i} />)
+  }
+  return <div className="list">{l}</div>
+}
+
+const numpad = () => {}
+
+const Item = ({ num }) => {
+  const [active, setActive] = useState(false)
+
+  return (
+    <div style={{ margin: "7px" }}>
+      <span style={{ textDecoration: active ? "line-through" : "none" }}>
+        {" "}
+        {num}{" "}
+      </span>
     </div>
-    )
+  )
 }
 
-const numpad = () => {
-    
-}
-
-ReactDom.render(<App/>,document.getElementById('root'))
+ReactDom.render(<App />, document.getElementById("root"))
