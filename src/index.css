@@ -33,11 +33,19 @@ body,
 	max-height: 400px;
 	grid-template-rows: 1fr 3fr;
 }
-#buttons {
+#buttons{
 	display: grid;
 	grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
 }
-.button {
+#control{
+	display: grid;
+	grid-template: 1fr / 1fr 1fr 1fr;
+	margin-top: 10px;
+}
+#control > *{
+	margin: 5px;
+}
+.button,#control > * {
 	outline: none;
 	border: none;
 	font-size: 1.5em;
